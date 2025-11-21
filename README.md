@@ -16,7 +16,7 @@
 2. Clone `.env.template.txt` into the main directory and rename it to `.env`
 3. Install dependencies: `npm install`
 4. Compile the script: `npm run build`
-5. Start the bot: `npm run start`
+5. Start the app: `npm run start`
 
 ## Development
 
