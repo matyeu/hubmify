@@ -25,7 +25,7 @@ export default function MaintenancePage() {
               src="/images/media/discord-blurple.svg"
               style={{ color: "transparent" }}
             />
-            Accéder à mon compte
+            Access my account
           </button>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -186,22 +186,21 @@ export default function MaintenancePage() {
 
               <div className="max-w-5xl mx-auto grid grid-cols-1 gap-6 lg:gap-4 relative">
                 <div className="badge-bientot-disponible max-w-max relative z-1 text-white font-action uppercase text-xs font-semibold px-4 py-2 rounded-full mx-auto">
-                  Bientôt Disponible
+                Coming Soon
                 </div>
 
                 <h1 className="text-dark-100 font-black text-center text-4xl lg:text-[64px] leading-tight lg:leading-none">
-                  Créer ton projet dès maintenant en quelques clics !
+                Create your project now in just a few clicks!
                 </h1>
 
                 <h2 className="text-dark-100 text-opacity-70 font-light font-sans text-center text-base lg:text-lg leading-tight">
-                  Augmente ta visibilité et boost ton réseau grâce à
-                  hubmify.com,
+                Increase your visibility and boost your network thanks to hubmify.com,
                   <br className="hidden lg:block" />
-                  la plateforme de projet pour les développeurs.
+                  the project platform for developers.
                 </h2>
 
                 <h2 className="text-dark-100 font-light font-sans text-center text-lg leading-tight relative max-w-max mx-auto pr-3">
-                  C&apos;est gratuit, sans pub et facile à utiliser.
+                It&apos;s free, ad-free, and easy to use.
                 </h2>
               </div>
 
@@ -212,21 +211,21 @@ export default function MaintenancePage() {
                       <p className="text-dark-200 opacity-60">hubmify.com/</p>
                       <input
                         type="text"
-                        placeholder="ton-nom"
+                        placeholder="your-name"
                         className="bg-transparent outline-none placeholder:text-dark-200 text-dark-100 truncate w-full"
                         defaultValue=""
                       />
                     </div>
                     <button className="!w-full lg:w-auto lg:max-w-max rounded-xl py-3 px-5 whitespace-nowrap text-sm relative z-1 overflow-hidden bg-button-primary bg-button-primary-disabled cursor-not-allowed">
                       <p className="text-dark-100 font-action font-bold relative z-[2]">
-                        Créer mon projet
+                      Create my project
                       </p>
                     </button>
                     <div className="bg-gradient-to-r from-dark-700 to-[rgba(0,0,0,.5)] backdrop-blur-lg -z-1 absolute top-0 left-0 h-full w-full opacity-50"></div>
                   </div>
                   <div className="absolute w-full">
                     <p className="text-white/70 font-action text-center mt-2.5 font-semibold hover:text-dark-100 cursor-pointer max-w-max mx-auto">
-                      ou me connecter
+                      or connect me
                     </p>
                   </div>
                 </div>
@@ -242,12 +241,11 @@ export default function MaintenancePage() {
                     01
                   </span>
                   <h2 className="relative text-dark-100 font-black text-3xl lg:text-4xl font-sans">
-                    Choisis ton thème
+                    Choose your theme
                   </h2>
                 </div>
                 <p className="text-dark-200 text-base lg:text-lg font-light leading-loose max-w-2xl mx-auto lg:mx-0 lg:max-w-full whitespace-pre-line">
-                  Choisis parmi une sélection de thèmes graphiques et
-                  personnalise ton projet à ton image.
+                Choose from a selection of graphic themes and customize your project to your image.
                 </p>
               </div>
 
@@ -257,14 +255,12 @@ export default function MaintenancePage() {
                     02
                   </span>
                   <h2 className="relative text-dark-100 font-black text-3xl lg:text-4xl font-sans">
-                    Ajoute tes réseaux
+                    Add your networks
                   </h2>
                 </div>
                 <p className="text-dark-200 text-base lg:text-lg font-light leading-loose max-w-2xl mx-auto lg:mx-0 lg:max-w-full whitespace-pre-line">
-                  Ajoute tes réseaux sociaux et tes liens de contact pour que
-                  tes visiteurs puissent te contacter facilement. GitHub,
-                  Dribbble, Behance, Discord et plein d&apos;autres sont
-                  disponibles !
+                Add your social networks and contact links so your visitors can 
+                reach you easily. GitHub, Dribbble, Behance, Discord, and many others are available!
                 </p>
               </div>
 
@@ -274,12 +270,11 @@ export default function MaintenancePage() {
                     03
                   </span>
                   <h2 className="relative text-dark-100 font-black text-3xl lg:text-4xl font-sans">
-                    Partage ton projet
+                    Share your project
                   </h2>
                 </div>
                 <p className="text-dark-200 text-base lg:text-lg font-light leading-loose max-w-2xl mx-auto lg:mx-0 lg:max-w-full whitespace-pre-line">
-                  Partage ton projet sur tes réseaux sociaux et boost ta
-                  visibilité.
+                Share your project on your social networks and boost your visibility.
                 </p>
               </div>
             </div>
@@ -606,7 +601,7 @@ export default function MaintenancePage() {
 
           <div className="max-w-2xl mx-auto text-dark-100 grid grid-cols-1 gap-10 relative -z-1">
             <h3 className="text-dark-100 font-black text-center text-4xl lg:text-[50px] leading-tight lg:leading-none">
-              Découvre les projets de la communauté
+              Discover the projects of the community
             </h3>
             <div className="flex items-center justify-center -space-x-6">
               <div className="w-16 h-16 lg:w-20 lg:h-20 relative overflow-hidden rounded-full border-[6px] border-dark-700 flex items-center justify-center text-lg lg:text-2xl text-dark-100 font-action font-bold uppercase z-1">
@@ -645,7 +640,7 @@ export default function MaintenancePage() {
             <div className="flex justify-center opacity-50">
               <button className="undefined border border-dark-100 border-opacity-20 rounded-xl py-3 px-5 whitespace-nowrap text-sm relative z-1 overflow-hidden bg-button-primary bg-button-primary-hover">
                 <p className="text-dark-100 font-action font-bold relative z-[2]">
-                  Explorer les projets (coming soon)
+                  Explore the projects (coming soon)
                 </p>
               </button>
             </div>
@@ -654,9 +649,9 @@ export default function MaintenancePage() {
           <div className="max-w-4xl mx-auto text-dark-100 grid grid-cols-1 gap-10 relative pb-32 lg:pb-0">
             <h3 className="text-dark-100 font-black text-center text-3xl lg:text-[50px] leading-tight lg:leading-none">
               <span className="block text-5xl lg:text-[64px] mb-4">
-                Convaincu ?
+                Conviced ?
               </span>{" "}
-              Créer ton projet dès maintenant !
+              Create your project now!
             </h3>
             <div className="group mx-auto w-full max-w-3xl relative">
               <div className="w-full mx-auto max-w-[600px] transition-all duration-200 border border-dark-200 group-focus-within:border-dark-100 group-focus-within:border-opacity-40 border-opacity-30 lg:border-opacity-60 rounded-3xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-3 p-4 lg:pl-6 lg:pr-3 lg:py-3 group-focus-within:ring-4 group-focus-within:ring-dark-100 group-focus-within:ring-opacity-10">
@@ -671,14 +666,14 @@ export default function MaintenancePage() {
                 </div>
                 <button className="!w-full lg:w-auto lg:max-w-max rounded-xl py-3 px-5 whitespace-nowrap text-sm relative z-1 overflow-hidden bg-button-primary bg-button-primary-disabled cursor-not-allowed">
                   <p className="text-dark-100 font-action font-bold relative z-[2]">
-                    Créer mon projet
+                    Create my project
                   </p>
                 </button>
                 <div className="bg-gradient-to-r from-dark-700 to-[rgba(0,0,0,.5)] backdrop-blur-lg -z-1 absolute top-0 left-0 h-full w-full opacity-50"></div>
               </div>
               <div className="absolute w-full">
                 <p className="text-white/70 font-action text-center mt-2.5 font-semibold hover:text-dark-100 cursor-pointer max-w-max mx-auto">
-                  ou me connecter
+                  or connect me
                 </p>
               </div>
             </div>
@@ -706,14 +701,14 @@ export default function MaintenancePage() {
                     className="text-white/70 text-base font-medium font-action hover:text-white"
                     href="conditions-generales-d-utilisation.html"
                   >
-                    Conditions générales d&apos;utilisation
+                   Terms of Use
                   </a>
                   <a
                     target="_blank"
                     className="text-white/70 text-base font-medium font-action hover:text-white"
                     href="politique-de-confidentialite.html"
                   >
-                    Politique de confidentialité
+                    Privacy Policy
                   </a>
                   <a
                     target="_blank"
@@ -726,12 +721,12 @@ export default function MaintenancePage() {
               </div>
               <div className="flex flex-col gap-3 text-center md:text-right">
                 <p className="text-white text-xs font-semibold font-action uppercase">
-                  Informations
+                  Information
                 </p>
                 <ul className="flex flex-col gap-2">
                   <li className="text-premium-default text-base font-medium font-action hover:text-premium-hover flex items-center justify-center md:justify-end gap-3">
                     <span className="bg-premium-default rounded-full text-xs text-premium-default px-2 py-0.5 bg-opacity-30">
-                      Bientôt
+                      Coming Soon
                     </span>
                     <span
                       className="relative"
@@ -781,14 +776,14 @@ export default function MaintenancePage() {
             <div className="w-full h-full relative z-1 p-3 lg:py-4 lg:pl-5 lg:pr-4 bg-dark-700 rounded-xl bg-opacity-80 backdrop-blur-sm">
               <div className="flex items-center justify-between gap-3">
                 <p className="text-dark-100 font-semibold text-base">
-                  Vous êtes graphiste ?
+                  Are you a graphic designer?
                 </p>
                 <a
                   target="_blank"
                   className="inline-block bg-dark-100 rounded-lg px-4 py-2 text-dark-900 outline-none text-sm hover:bg-dark-100/90 transition-all duration-200"
                   href="https://graphiste.bio"
                 >
-                  Créer mon projet
+                  Create my project
                 </a>
               </div>
             </div>
