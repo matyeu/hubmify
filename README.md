@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<img width="150" height="150" align="left" style="float: left; margin: 0 10px 0 0;" alt="Hubmify" src="public/images/logos/logo.png">
 
-## Getting Started
+# HUBMIFY
 
-First, run the development server:
+[![](https://img.shields.io/badge/nodejs-20.9.0-green.svg)](https://www.nodejs.org)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<br>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Hubmify** is a CMS developed by [matyeu](https://discord.com/users/916444775861850175).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Global Configuration
 
-## Learn More
+1. Clone the repository
+2. Clone `.env.template.txt` into the main directory and rename it to `.env`
+3. Install dependencies: `npm install`
+4. Compile the script: `npm run build`
+5. Start the bot: `npm run start`
 
-To learn more about Next.js, take a look at the following resources:
+## Development
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Typescript](https://www.typescriptlang.org) - TypeScript
+- [Express js](https://expressjs.com/) - Express JS
+- [Next js](https://nextjs.org/) - Next JS
+- [MYSQL](https://www.mysql.com/fr/) - MYSQL
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Versions
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Latest stable version:** 1.0.0
+- **Latest version:** 1.0.0
