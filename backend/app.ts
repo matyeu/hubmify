@@ -10,7 +10,10 @@ app.use(express.json());
 app.use(sessionMiddleware);
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:3000",
+    origin:
+      process.env.MODE === "development"
+        ? process.env.FRONTEND_URL_DEV
+        : process.env.FRONTEND_URL_PROD,
     credentials: true,
   })
 );
