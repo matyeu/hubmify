@@ -1,8 +1,19 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 
 export default function MaintenancePage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <>
       <link rel="stylesheet" href="/css/maintenance.css" />
@@ -16,7 +27,10 @@ export default function MaintenancePage() {
           >
             hubmify.com
           </a>
-          <button className="bg-white px-5 py-3.5 shadow-sm rounded-md text-discord-default font-semibold text-sm font-action items-center justify-center gap-3 transition-all duration-200 hover:-translate-y-1.5 hidden lg:flex">
+          <button
+            className="bg-white px-5 py-3.5 shadow-sm rounded-md text-discord-default font-semibold text-sm font-action items-center justify-center gap-3 transition-all duration-200 hover:-translate-y-1.5 hidden lg:flex opacity-50 cursor-not-allowed"
+            disabled
+          >
             <Image
               alt="Discord Logo"
               loading="lazy"
@@ -27,27 +41,39 @@ export default function MaintenancePage() {
             />
             Access my account
           </button>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-dark-100 lg:hidden"
+          <button
+            onClick={toggleMenu}
+            className="text-dark-100 lg:hidden cursor-pointer"
+            aria-label="Toggle menu"
           >
-            <line x1="4" x2="20" y1="12" y2="12"></line>
-            <line x1="4" x2="20" y1="6" y2="6"></line>
-            <line x1="4" x2="20" y1="18" y2="18"></line>
-          </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="4" x2="20" y1="12" y2="12"></line>
+              <line x1="4" x2="20" y1="6" y2="6"></line>
+              <line x1="4" x2="20" y1="18" y2="18"></line>
+            </svg>
+          </button>
         </nav>
 
-        <div className="fixed top-0 left-0 w-screen h-screen bg-dark-700 bg-opacity-30 backdrop-blur-2xl z-10 transition-all duration-200 flex items-center justify-center pointer-events-none opacity-0">
+        <div
+          className={`fixed top-0 left-0 w-screen h-screen bg-dark-700 bg-opacity-30 backdrop-blur-2xl z-10 transition-all duration-200 flex items-center justify-center ${
+            isMenuOpen
+              ? "pointer-events-auto opacity-100"
+              : "pointer-events-none opacity-0"
+          }`}
+          onClick={closeMenu}
+        >
           <div></div>
-          <div className="w-full px-10">
+          <div className="w-full px-10" onClick={(e) => e.stopPropagation()}>
             <p className="text-dark-100/70 text-sm font-bold uppercase mb-5">
               Ou souhaites-tu aller ?
             </p>
@@ -186,21 +212,22 @@ export default function MaintenancePage() {
 
               <div className="max-w-5xl mx-auto grid grid-cols-1 gap-6 lg:gap-4 relative">
                 <div className="badge-bientot-disponible max-w-max relative z-1 text-white font-action uppercase text-xs font-semibold px-4 py-2 rounded-full mx-auto">
-                Coming Soon
+                  Coming Soon
                 </div>
 
                 <h1 className="text-dark-100 font-black text-center text-4xl lg:text-[64px] leading-tight lg:leading-none">
-                Create your project now in just a few clicks!
+                  Create your project <br></br>now in just a few clicks!
                 </h1>
 
                 <h2 className="text-dark-100 text-opacity-70 font-light font-sans text-center text-base lg:text-lg leading-tight">
-                Increase your visibility and boost your network thanks to hubmify.com,
+                  Increase your visibility and boost your network thanks to
+                  hubmify.com,
                   <br className="hidden lg:block" />
                   the project platform for developers.
                 </h2>
 
                 <h2 className="text-dark-100 font-light font-sans text-center text-lg leading-tight relative max-w-max mx-auto pr-3">
-                It&apos;s free, ad-free, and easy to use.
+                  It&apos;s free, ad-free, and easy to use.
                 </h2>
               </div>
 
@@ -218,7 +245,7 @@ export default function MaintenancePage() {
                     </div>
                     <button className="!w-full lg:w-auto lg:max-w-max rounded-xl py-3 px-5 whitespace-nowrap text-sm relative z-1 overflow-hidden bg-button-primary bg-button-primary-disabled cursor-not-allowed">
                       <p className="text-dark-100 font-action font-bold relative z-[2]">
-                      Create my project
+                        Create my project
                       </p>
                     </button>
                     <div className="bg-gradient-to-r from-dark-700 to-[rgba(0,0,0,.5)] backdrop-blur-lg -z-1 absolute top-0 left-0 h-full w-full opacity-50"></div>
@@ -245,7 +272,8 @@ export default function MaintenancePage() {
                   </h2>
                 </div>
                 <p className="text-dark-200 text-base lg:text-lg font-light leading-loose max-w-2xl mx-auto lg:mx-0 lg:max-w-full whitespace-pre-line">
-                Choose from a selection of graphic themes and customize your project to your image.
+                  Choose from a selection of graphic themes and customize your
+                  project to your image.
                 </p>
               </div>
 
@@ -259,8 +287,9 @@ export default function MaintenancePage() {
                   </h2>
                 </div>
                 <p className="text-dark-200 text-base lg:text-lg font-light leading-loose max-w-2xl mx-auto lg:mx-0 lg:max-w-full whitespace-pre-line">
-                Add your social networks and contact links so your visitors can 
-                reach you easily. GitHub, Dribbble, Behance, Discord, and many others are available!
+                  Add your social networks and contact links so your visitors
+                  can reach you easily. GitHub, Dribbble, Behance, Discord, and
+                  many others are available!
                 </p>
               </div>
 
@@ -274,7 +303,8 @@ export default function MaintenancePage() {
                   </h2>
                 </div>
                 <p className="text-dark-200 text-base lg:text-lg font-light leading-loose max-w-2xl mx-auto lg:mx-0 lg:max-w-full whitespace-pre-line">
-                Share your project on your social networks and boost your visibility.
+                  Share your project on your social networks and boost your
+                  visibility.
                 </p>
               </div>
             </div>
@@ -699,21 +729,21 @@ export default function MaintenancePage() {
                   <a
                     target="_blank"
                     className="text-white/70 text-base font-medium font-action hover:text-white"
-                    href="conditions-generales-d-utilisation.html"
+                    href="/maintenance/terms-of-use"
                   >
-                   Terms of Use
+                    Terms of Use
                   </a>
                   <a
                     target="_blank"
                     className="text-white/70 text-base font-medium font-action hover:text-white"
-                    href="politique-de-confidentialite.html"
+                    href="/maintenance/privacy-policy"
                   >
                     Privacy Policy
                   </a>
                   <a
                     target="_blank"
                     className="text-white/70 text-base font-medium font-action hover:text-white"
-                    href="politique-des-cookies.html"
+                    href="/maintenance/politique-des-cookies"
                   >
                     Cookies
                   </a>
@@ -756,7 +786,7 @@ export default function MaintenancePage() {
                   <a
                     target="_blank"
                     className="text-white/70 text-base font-medium font-action hover:text-white"
-                    href="https://discord.gg/Khwt79K7zw"
+                    href="https://discord.gg/SSPXJ6T96N"
                   >
                     Contact
                   </a>
@@ -776,14 +806,14 @@ export default function MaintenancePage() {
             <div className="w-full h-full relative z-1 p-3 lg:py-4 lg:pl-5 lg:pr-4 bg-dark-700 rounded-xl bg-opacity-80 backdrop-blur-sm">
               <div className="flex items-center justify-between gap-3">
                 <p className="text-dark-100 font-semibold text-base">
-                  Are you a graphic designer?
+                  Any questions?
                 </p>
                 <a
                   target="_blank"
                   className="inline-block bg-dark-100 rounded-lg px-4 py-2 text-dark-900 outline-none text-sm hover:bg-dark-100/90 transition-all duration-200"
-                  href="https://graphiste.bio"
+                  href="https://discord.gg/SSPXJ6T96N"
                 >
-                  Create my project
+                  Join us on Discord
                 </a>
               </div>
             </div>

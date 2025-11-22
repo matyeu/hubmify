@@ -1,3 +1,6 @@
+import { configDotenv } from "dotenv";
+configDotenv();
+
 import express from "express";
 import { sessionMiddleware } from "@/utils/session";
 import cors from "cors";
