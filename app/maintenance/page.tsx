@@ -717,7 +717,7 @@ export default function MaintenancePage() {
                   © hubmify.com
                 </p>
                 <p className="text-white/60 text-sm font-medium font-action mt-1">
-                  Copyright © 2023 hubmify.com, Inc
+                  Copyright © 2025 hubmify.com, Inc
                 </p>
               </div>
               <div className=""></div>
