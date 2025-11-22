@@ -64,15 +64,15 @@ export default function Header({
           </button>
           {(userAvatar || userName) && (
             <div className="hidden md:flex items-center gap-3 pl-3 border-l border-gray-200">
-              {userAvatar && (
-                <Image
-                  src={userAvatar}
-                  alt={userName || "User"}
-                  width={40}
-                  height={40}
-                  className="w-10 h-10 rounded-full object-cover border-2 border-gray-200"
-                />
-              )}
+              <div
+                className="w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold"
+                style={{
+                  background:
+                    "linear-gradient(to bottom right, #004AAD, #E385EC)",
+                }}
+              >
+                M
+              </div>
               {userName && (
                 <span className="text-sm font-medium text-gray-900">
                   {userName}

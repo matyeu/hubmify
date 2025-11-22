@@ -238,7 +238,7 @@ export default function MaintenancePage() {
                       <p className="text-dark-200 opacity-60">hubmify.com/</p>
                       <input
                         type="text"
-                        placeholder="your-name"
+                        placeholder="your-project"
                         className="bg-transparent outline-none placeholder:text-dark-200 text-dark-100 truncate w-full"
                         defaultValue=""
                       />
