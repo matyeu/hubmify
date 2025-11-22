@@ -6,6 +6,7 @@ import Header from "../../../components/dashboard/Header";
 import Sidebar from "../../../components/dashboard/Sidebar";
 import Footer from "../../../components/dashboard/Footer";
 import Modal from "../../../components/dashboard/Modal";
+import ModuleCard from "../../../components/dashboard/ModuleCard";
 import { useSidebar } from "../../../contexts/SidebarContext";
 import { useParams } from "next/navigation";
 import { Module, getModules } from "../../../data/dashboard/moduleLinks";
@@ -175,157 +176,116 @@ export default function SubscriptionPage() {
 
                 <div className="flex flex-wrap gap-5">
                   {paidModules.map((module) => (
-                    <div
+                    <ModuleCard
                       key={module.id}
+                      id={module.id}
+                      name={module.name}
+                      description={module.description}
+                      icon={module.icon}
+                      isPro={module.isPro}
+                      isPremium={module.isPremium}
+                      purchasedAt={module.purchasedAt}
                       onClick={() =>
                         setTransferringModuleId(
                           transferringModuleId === module.id ? null : module.id
                         )
                       }
-                      className="group flex flex-col w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] xl:w-[calc(25%-15px)] bg-white hover:bg-gray-50 transition-all duration-200 cursor-pointer p-6 rounded-[10px] border border-gray-200 hover:border-[#0F8096] hover:shadow-lg"
-                    >
-                      <div className="flex justify-between items-start mb-4">
-                        <div className="bg-[#CFF6FD] text-[#0F8096] w-12 h-12 flex items-center justify-center rounded-[10px]">
-                          <div className="w-6 h-6">{module.icon}</div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          {module.isPro && (
-                            <Image
-                              src="/images/badge_pro.png"
-                              alt="Pro badge"
-                              width={40}
-                              height={40}
-                              className="h-10 w-auto"
-                            />
-                          )}
-                          {module.isPremium && (
-                            <div className="px-2 h-6 bg-amber-100 text-amber-700 flex items-center justify-center gap-1.5 text-xs font-medium rounded-[8px] border border-amber-200">
+                      actionButton={
+                        <div className="relative">
+                          <div
+                            data-transfer-button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setTransferringModuleId(
+                                transferringModuleId === module.id
+                                  ? null
+                                  : module.id
+                              );
+                            }}
+                            className="mt-auto w-fit rounded-[10px] flex items-center justify-center gap-2 overflow-hidden relative cursor-pointer text-gray-700"
+                          >
+                            <span className="flex items-center gap-2 px-4 py-2 relative bottom-0 group-hover:bottom-full bg-gray-100 transition-all duration-200">
                               <svg
-                                className="w-3 h-3"
-                                fill="currentColor"
+                                className="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
                                 viewBox="0 0 24 24"
                               >
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+                                />
                               </svg>
-                              Premium
+                              <span className="text-sm font-medium">
+                                Transférer
+                              </span>
+                            </span>
+                            <span className="flex items-center gap-2 px-4 py-2 bg-[#0F8096] text-white absolute top-full group-hover:top-0 transition-all duration-200">
+                              <span className="text-sm font-medium">
+                                Transférer
+                              </span>
+                              <svg
+                                className="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M9 5l7 7-7 7"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+
+                          {transferringModuleId === module.id && (
+                            <div
+                              data-transfer-menu
+                              className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 overflow-hidden"
+                            >
+                              <div className="p-2 max-h-48 overflow-y-auto">
+                                {availableProjects.length === 0 ? (
+                                  <div className="px-3 py-2 text-sm text-gray-500 text-center">
+                                    Aucun autre projet disponible
+                                  </div>
+                                ) : (
+                                  availableProjects.map((project) => (
+                                    <button
+                                      key={project.href}
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleTransferClick(
+                                          module.id,
+                                          project.href
+                                        );
+                                      }}
+                                      className="w-full px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 transition-colors flex items-center gap-3 cursor-pointer"
+                                    >
+                                      {project.logo && (
+                                        <Image
+                                          src={project.logo}
+                                          alt={project.label}
+                                          width={24}
+                                          height={24}
+                                          className="w-6 h-6 rounded-full object-cover"
+                                        />
+                                      )}
+                                      <span className="flex-1">
+                                        {project.label}
+                                      </span>
+                                    </button>
+                                  ))
+                                )}
+                              </div>
                             </div>
                           )}
                         </div>
-                      </div>
-
-                      <div className="text-base font-bold text-gray-900 mb-2">
-                        {module.name}
-                      </div>
-                      <div className="text-sm text-gray-600 mb-4 line-clamp-2">
-                        {module.description}
-                      </div>
-
-                      <div className="text-xs text-gray-500 mb-4">
-                        Acheté le{" "}
-                        {new Date(module.purchasedAt).toLocaleDateString(
-                          "fr-FR",
-                          {
-                            day: "numeric",
-                            month: "long",
-                            year: "numeric",
-                          }
-                        )}
-                      </div>
-
-                      <div className="relative">
-                        <div
-                          data-transfer-button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setTransferringModuleId(
-                              transferringModuleId === module.id
-                                ? null
-                                : module.id
-                            );
-                          }}
-                          className="mt-auto w-fit rounded-[10px] flex items-center justify-center gap-2 overflow-hidden relative cursor-pointer text-gray-700"
-                        >
-                          <span className="flex items-center gap-2 px-4 py-2 relative bottom-0 group-hover:bottom-full bg-gray-100 transition-all duration-200">
-                            <svg
-                              className="w-4 h-4"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
-                              />
-                            </svg>
-                            <span className="text-sm font-medium">
-                              Transférer
-                            </span>
-                          </span>
-                          <span className="flex items-center gap-2 px-4 py-2 bg-[#0F8096] text-white absolute top-full group-hover:top-0 transition-all duration-200">
-                            <span className="text-sm font-medium">
-                              Transférer
-                            </span>
-                            <svg
-                              className="w-4 h-4"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M9 5l7 7-7 7"
-                              />
-                            </svg>
-                          </span>
-                        </div>
-
-                        {transferringModuleId === module.id && (
-                          <div
-                            data-transfer-menu
-                            className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 overflow-hidden"
-                          >
-                            <div className="p-2 max-h-48 overflow-y-auto">
-                              {availableProjects.length === 0 ? (
-                                <div className="px-3 py-2 text-sm text-gray-500 text-center">
-                                  Aucun autre projet disponible
-                                </div>
-                              ) : (
-                                availableProjects.map((project) => (
-                                  <button
-                                    key={project.href}
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                      handleTransferClick(
-                                        module.id,
-                                        project.href
-                                      );
-                                    }}
-                                    className="w-full px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 transition-colors flex items-center gap-3 cursor-pointer"
-                                  >
-                                    {project.logo && (
-                                      <Image
-                                        src={project.logo}
-                                        alt={project.label}
-                                        width={24}
-                                        height={24}
-                                        className="w-6 h-6 rounded-full object-cover"
-                                      />
-                                    )}
-                                    <span className="flex-1">
-                                      {project.label}
-                                    </span>
-                                  </button>
-                                ))
-                              )}
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </div>
+                      }
+                    />
                   ))}
                 </div>
               </div>
