@@ -3,8 +3,12 @@ import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
-  const maintenanceMode = process.env.MAINTENANCE_MODE;
+  const maintenanceModeRaw = process.env.MAINTENANCE_MODE;
+  const isMaintenance =
+    maintenanceModeRaw?.toLowerCase().trim() === "true" ||
+    maintenanceModeRaw?.toLowerCase().trim() === "1";
 
+  // Exclure les fichiers statiques
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/images") ||
@@ -16,11 +20,11 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  if (maintenanceMode && !pathname.startsWith("/maintenance")) {
+  if (isMaintenance && !pathname.startsWith("/maintenance")) {
     return NextResponse.redirect(new URL("/maintenance", request.url));
   }
 
-  if (!maintenanceMode && pathname.startsWith("/maintenance")) {
+  if (!isMaintenance && pathname.startsWith("/maintenance")) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
