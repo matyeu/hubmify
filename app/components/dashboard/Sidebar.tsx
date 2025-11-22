@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname, useParams } from "next/navigation";
 import { useSidebar } from "../../contexts/SidebarContext";
 import CollapseButton from "./CollapseButton";
+import UserProfileMenu from "./UserProfileMenu";
 import { useState, useEffect, useRef } from "react";
 import projectLinks from "../../data/dashboard/projectLinks";
 
@@ -15,6 +16,7 @@ export default function Sidebar() {
   const [selectedProject, setSelectedProject] = useState<string>("1");
   const [isProjectMenuOpen, setIsProjectMenuOpen] = useState(false);
   const projectMenuRef = useRef<HTMLDivElement>(null);
+  const projectButtonRef = useRef<HTMLDivElement>(null);
 
   const projectId = (params?.projectid as string) || selectedProject;
 
@@ -73,10 +75,12 @@ export default function Sidebar() {
       <aside
         className={`bg-white border-r border-gray-200 flex flex-col h-screen transition-all duration-700 ease-out z-50 ${
           isMobile
-            ? `fixed top-0 left-0 ${
-                isOpen ? "translate-x-0" : "-translate-x-full"
-              } w-full`
-            : `relative ${collapsed ? "w-20" : "w-64"}`
+            ? `fixed top-0 left-0 transition-[width] duration-700 ease-out ${
+                isOpen ? "w-full" : "w-0"
+              } overflow-hidden`
+            : `relative ${collapsed ? "w-20" : "w-64"} ${
+                collapsed ? "overflow-visible" : ""
+              }`
         } ${isMobile && !isOpen ? "pointer-events-none" : ""}`}
       >
         {!isMobile && <CollapseButton />}
@@ -137,7 +141,13 @@ export default function Sidebar() {
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 p-4 flex flex-col">
+        <nav
+          className={`flex-1 p-4 flex flex-col ${
+            !isMobile && collapsed && isProjectMenuOpen
+              ? "overflow-visible"
+              : "overflow-y-auto"
+          }`}
+        >
           <div className="mb-6">
             {/* Select menu pour les projets */}
             {showText ? (
@@ -242,10 +252,11 @@ export default function Sidebar() {
               </div>
             ) : (
               <div
-                className="mb-4 px-3 flex justify-center"
+                className="mb-4 px-3 flex justify-center relative"
                 ref={projectMenuRef}
               >
                 <div
+                  ref={projectButtonRef}
                   className="w-8 h-8 flex-shrink-0 rounded-lg border border-gray-200 flex items-center justify-center bg-[#f3f4f6] cursor-pointer hover:bg-gray-100 transition-colors relative"
                   title={currentProject.name}
                   onClick={() => setIsProjectMenuOpen(!isProjectMenuOpen)}
@@ -261,7 +272,7 @@ export default function Sidebar() {
                   )}
                   {/* Menu déroulant pour mode collapsed */}
                   {isProjectMenuOpen && (
-                    <div className="absolute left-full top-0 ml-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 min-w-[200px]">
+                    <div className="absolute left-full top-0 ml-2 mt-2 bg-white border border-gray-200 rounded-lg shadow-xl z-[100] min-w-[200px]">
                       <div className="p-2 gap-1 flex flex-col max-h-64 overflow-y-auto">
                         {userProjects.map((project) => (
                           <div
@@ -497,7 +508,6 @@ export default function Sidebar() {
               </li>
             </ul>
           </div>
-
           {/* Personalisation section */}
           <div className="mb-6">
             {showText && (
@@ -697,26 +707,11 @@ export default function Sidebar() {
 
         {/* Profile */}
         <div className="border-t border-gray-200 bg-[#f3f4f6] p-4">
-          <div
-            className={`flex items-center ${
-              showText ? "gap-3" : "justify-center"
-            }`}
-          >
-            <div
-              className="w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold"
-              style={{
-                background:
-                  "linear-gradient(to bottom right, #004AAD, #E385EC)",
-              }}
-            >
-              M
-            </div>
-            {showText && (
-              <span className="text-sm font-bold text-gray-700 transition-opacity duration-700 ease-out">
-                Matyeu
-              </span>
-            )}
-          </div>
+          <UserProfileMenu
+            userName="Matyeu"
+            variant="sidebar"
+            showText={isMobile && isOpen ? true : showText}
+          />
         </div>
       </aside>
     </>

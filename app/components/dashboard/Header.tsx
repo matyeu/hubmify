@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import UserProfileMenu from "./UserProfileMenu";
 
 interface HeaderProps {
   title?: string;
@@ -20,8 +23,8 @@ export default function Header({
   projectName,
 }: HeaderProps) {
   return (
-    <header className="bg-white border-b border-gray-200 p-6 md:pl-6 pl-[80px]">
-      <div className="flex items-start justify-between mb-4">
+    <header className="bg-white border-b border-gray-200 p-4 md:pl-4 pl-[80px]">
+      <div className="flex items-start justify-between mb-2">
         <div className="flex items-center gap-3">
           {projectLogo && (
             <Image
@@ -34,13 +37,11 @@ export default function Header({
           )}
           <div>
             {projectName ? (
-              <h1 className="text-2xl font-bold text-gray-900">
-                {projectName}
-              </h1>
+              <h1 className="text-xl font-bold text-gray-900">{projectName}</h1>
             ) : (
               <>
                 {title && (
-                  <h1 className="text-2xl font-bold text-gray-900 mb-1">
+                  <h1 className="text-xl font-bold text-gray-900 mb-1">
                     {title}
                   </h1>
                 )}
@@ -62,24 +63,7 @@ export default function Header({
               className="w-4 h-4"
             />
           </button>
-          {(userAvatar || userName) && (
-            <div className="hidden md:flex items-center gap-3 pl-3 border-l border-gray-200">
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold"
-                style={{
-                  background:
-                    "linear-gradient(to bottom right, #004AAD, #E385EC)",
-                }}
-              >
-                M
-              </div>
-              {userName && (
-                <span className="text-sm font-medium text-gray-900">
-                  {userName}
-                </span>
-              )}
-            </div>
-          )}
+          <UserProfileMenu userName={userName} />
         </div>
       </div>
       {url && !projectLogo && (
