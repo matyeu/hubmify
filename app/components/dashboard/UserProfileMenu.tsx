@@ -120,7 +120,7 @@ export default function UserProfileMenu({
               <ul className="space-y-1">
                 <li>
                   <Link
-                    href="#"
+                    href="/subscription"
                     className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -138,7 +138,7 @@ export default function UserProfileMenu({
               <ul className="space-y-1">
                 <li>
                   <Link
-                    href="#"
+                    href="/dashboard/"
                     className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -151,7 +151,7 @@ export default function UserProfileMenu({
                     className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Transfer Premium
+                    Transfer Modules
                   </Link>
                 </li>
               </ul>
