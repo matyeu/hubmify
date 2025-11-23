@@ -1,5 +1,6 @@
 "use client";
 
+import "./maintenance.css";
 import Image from "next/image";
 import { useState } from "react";
 import Button from "../components/Button";
@@ -17,7 +18,6 @@ export default function MaintenancePage() {
 
   return (
     <>
-      <link rel="stylesheet" href="/css/maintenance.css" />
       <div className="bg-dark-700 maintenance-page min-h-screen w-full overflow-x-hidden relative z-1">
         <div id="background__noisy"></div>
 
@@ -84,7 +84,7 @@ export default function MaintenancePage() {
           <div></div>
           <div className="w-full px-10" onClick={(e) => e.stopPropagation()}>
             <p className="text-dark-100/70 text-sm font-bold uppercase mb-5">
-              Ou souhaites-tu aller ?
+              Where to go?
             </p>
             <ul className="grid grid-cols-1 gap-5 w-full">
               <li className="relative w-full max-w-max opacity-50">
@@ -114,7 +114,7 @@ export default function MaintenancePage() {
                 />
               </li>
               <li className="relative w-full max-w-max text-4xl font-bold text-white">
-                Me connecter
+                Sign in
               </li>
             </ul>
             <div></div>
