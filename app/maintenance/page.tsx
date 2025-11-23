@@ -31,7 +31,7 @@ export default function MaintenancePage() {
           <Button
             variant="secondary"
             size="md"
-            className="bg-white px-5 py-3.5 shadow-sm rounded-md text-discord-default font-semibold text-sm font-action items-center justify-center gap-3 transition-all duration-200 hover:-translate-y-1.5 hidden lg:flex opacity-50"
+            className="!hidden lg:!flex bg-white px-5 py-3.5 shadow-sm rounded-md text-discord-default font-semibold text-sm font-action items-center justify-center gap-3 transition-all duration-200 hover:-translate-y-1.5 opacity-50"
             disabled
             icon={
               <Image
