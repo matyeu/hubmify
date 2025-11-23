@@ -6,7 +6,7 @@ import Header from "../../../components/dashboard/Header";
 import Sidebar from "../../../components/dashboard/Sidebar";
 import Footer from "../../../components/dashboard/Footer";
 import Modal from "../../../components/dashboard/Modals/Modal";
-import ModuleCard from "../../../components/dashboard/ModuleCard";
+import ModuleCard from "../../../components/dashboard/Modules/ModuleCard";
 import Button from "../../../components/Button";
 import { useSidebar } from "../../../contexts/SidebarContext";
 import { useParams } from "next/navigation";

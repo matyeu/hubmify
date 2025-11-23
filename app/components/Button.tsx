@@ -35,7 +35,7 @@ export default function Button({
   const hasVariant = variant !== undefined;
 
   const baseClasses = hasVariant
-    ? "inline-flex items-center justify-center gap-2 font-medium rounded-lg transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+    ? "inline-flex items-center justify-center gap-2 font-medium rounded-xl transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
     : "";
 
   const variantClasses = {

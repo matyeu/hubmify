@@ -623,6 +623,45 @@ export default function Sidebar() {
                   )}
                 </Link>
               </li>
+              <li>
+                <Link
+                  href={`/dashboard/${projectId}/themes`}
+                  onClick={handleLinkClick}
+                  className={`flex items-center rounded-lg transition-all duration-700 ease-out ${
+                    showText ? "gap-3 px-3 py-2" : "justify-center px-3 py-2"
+                  } text-gray-700 hover:bg-gray-100 ${
+                    pathname?.includes("/themes") ? "bg-[#CFF6FD] text-[#0F8096]" : ""
+                  }`}
+                  title={showText ? undefined : "Themes"}
+                >
+                  <div
+                    className={`w-8 h-8 flex-shrink-0 rounded-lg border border-gray-200 flex items-center justify-center ${
+                      pathname?.includes("/themes") ? "bg-[#CFF6FD]" : "bg-[#f3f4f6]"
+                    }`}
+                  >
+                    <svg
+                      className={`w-5 h-5 ${
+                        pathname?.includes("/themes") ? "text-[#0F8096]" : "text-gray-700"
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+                      />
+                    </svg>
+                  </div>
+                  {showText && (
+                    <span className="text-sm font-bold transition-opacity duration-700 ease-out">
+                      Themes
+                    </span>
+                  )}
+                </Link>
+              </li>
             </ul>
           </div>
 
