@@ -697,7 +697,7 @@ export default function Sidebar() {
               </li>
               <li>
                 <Link
-                  href={`/dashboard/${projectId}/settings`}
+                  href={`/dashboard/${projectId}/account/settings`}
                   onClick={handleLinkClick}
                   className={`flex items-center rounded-lg transition-all duration-700 ease-out ${
                     showText ? "gap-3 px-3 py-2" : "justify-center px-3 py-2"
@@ -706,14 +706,14 @@ export default function Sidebar() {
                 >
                   <div
                     className={`w-8 h-8 flex-shrink-0 rounded-lg border border-gray-200 flex items-center justify-center ${
-                      isActive("/settings") || isActive("/dashboard/settings")
+                      pathname?.includes("/account/settings")
                         ? "bg-[#CFF6FD]"
                         : "bg-[#f3f4f6]"
                     }`}
                   >
                     <svg
                       className={`w-5 h-5 ${
-                        isActive("/settings") || isActive("/dashboard/settings")
+                        pathname?.includes("/account/settings")
                           ? "text-[#0F8096]"
                           : "text-gray-700"
                       }`}
