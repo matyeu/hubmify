@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Button from "../components/Button";
 
 export default function SubscriptionPage() {
   return (
@@ -153,9 +154,14 @@ export default function SubscriptionPage() {
               </div>
 
               {/* CTA Button */}
-              <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-xl transition-colors cursor-pointer">
+              <Button
+                variant="primary"
+                size="lg"
+                fullWidth
+                className="!bg-blue-500 hover:!bg-blue-600 rounded-xl"
+              >
                 Upgrade now
-              </button>
+              </Button>
             </div>
           </div>
         </main>

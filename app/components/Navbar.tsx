@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import Button from "./Button";
 
 // Logo Component
 function LogoIcon({
@@ -26,71 +27,6 @@ function LogoIcon({
       height={42}
       className={className}
     />
-  );
-}
-
-// Button Component
-function Button({
-  children,
-  className,
-  theme = "white",
-  href,
-  onClick,
-  bordered = true,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  theme?: "white" | "dark";
-  href?: string;
-  onClick?: () => void;
-  bordered?: boolean;
-}) {
-  const baseClasses =
-    "inline-block min-w-min text-sm rounded-full whitespace-nowrap relative z-1 overflow-hidden transition-all duration-200 cursor-pointer hover:brightness-125";
-  const themeClasses = {
-    white: bordered ? "p-[4px] bg-white/20 border border-white/20" : "",
-    dark: bordered ? "p-[4px] bg-black/20 border border-black/5" : "",
-  };
-  const innerClasses = {
-    white: "bg-white text-body",
-    dark: "bg-black text-dark-100",
-  };
-
-  const content = (
-    <p
-      className={clsx(
-        "font-sans font-semibold relative inline-block rounded-full z-1 transition-all duration-200 w-full px-5 py-3",
-        innerClasses[theme]
-      )}
-    >
-      {children}
-      <span
-        className={clsx(
-          "absolute right-0 top-0 h-full w-[40px] blur-xl -z-1",
-          theme === "dark" ? "bg-[#2A6494]" : "bg-[#b3d9f7]"
-        )}
-      />
-    </p>
-  );
-
-  if (href) {
-    return (
-      <Link
-        href={href}
-        className={clsx(className, baseClasses, themeClasses[theme])}
-      >
-        {content}
-      </Link>
-    );
-  }
-
-  return (
-    <button
-      onClick={onClick}
-      className={clsx(className, baseClasses, themeClasses[theme])}
-    >
-      {content}
-    </button>
   );
 }
 
@@ -240,23 +176,29 @@ function MobileMenu({
       )}
     >
       <div className="flex items-center justify-end w-full" onClick={onClose}>
-        <button
-          className={clsx("z-[30]", scrolled ? "text-gray-900" : "text-white")}
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
+        <Button
+          variant="ghost"
+          size="sm"
+          className={clsx(
+            "z-[30] p-0",
+            scrolled ? "text-gray-900" : "text-white"
+          )}
+          icon={
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          }
+        />
       </div>
       <div className="w-full">
         <p className="text-dark-100/70 text-sm font-bold uppercase mb-5">
@@ -440,28 +382,31 @@ export default function Navbar({
             </Link>
           </div>
         )}
-        <button
+        <Button
+          variant="ghost"
+          size="sm"
           className={clsx(
-            "lg:hidden",
+            "lg:hidden p-0",
             scrolled ? "text-gray-900" : "text-white"
           )}
           onClick={() => setIsMobileMenuOpen(true)}
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
+          icon={
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          }
+        />
       </nav>
       <MobileMenu
         isOpen={isMobileMenuOpen}

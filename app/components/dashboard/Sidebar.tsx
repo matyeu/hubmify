@@ -6,6 +6,7 @@ import { usePathname, useParams } from "next/navigation";
 import { useSidebar } from "../../contexts/SidebarContext";
 import CollapseButton from "./CollapseButton";
 import UserProfileMenu from "./UserProfileMenu";
+import Button from "../Button";
 import { useState, useEffect, useRef } from "react";
 import projectLinks from "../../data/dashboard/projectLinks";
 
@@ -130,24 +131,27 @@ export default function Sidebar() {
           </div>
           {/* Bouton de fermeture sur mobile dans le header */}
           {isMobile && isOpen && (
-            <button
+            <Button
               onClick={toggleCollapse}
-              className="absolute top-1/2 right-6 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-gray-600 hover:bg-gray-200 rounded transition-all cursor-pointer"
-            >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
+              variant="ghost"
+              size="sm"
+              className="absolute top-1/2 right-6 -translate-y-1/2 w-8 h-8 p-0 min-w-0"
+              icon={
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              }
+            />
           )}
         </div>
 
@@ -234,29 +238,34 @@ export default function Sidebar() {
                       </div>
                     ))}
                     <div className="border-t border-gray-200 mt-1 pt-1">
-                      <button
+                      <Button
                         onClick={() => {
                           setIsProjectMenuOpen(false);
                         }}
-                        className="w-full p-2 flex gap-3 items-center rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 transition-all duration-200 cursor-pointer group"
+                        variant="ghost"
+                        size="sm"
+                        className="w-full justify-start p-2"
+                        icon={
+                          <div className="w-7 h-7 flex items-center justify-center rounded-full border border-gray-300 group-hover:border-[#0F8096] transition-colors">
+                            <svg
+                              className="w-4 h-4 text-gray-500 group-hover:text-[#0F8096] transition-colors"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M12 4v16m8-8H4"
+                              />
+                            </svg>
+                          </div>
+                        }
+                        iconPosition="left"
                       >
-                        <div className="w-7 h-7 flex items-center justify-center rounded-full border border-gray-300 group-hover:border-[#0F8096] transition-colors">
-                          <svg
-                            className="w-4 h-4 text-gray-500 group-hover:text-[#0F8096] transition-colors"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M12 4v16m8-8H4"
-                            />
-                          </svg>
-                        </div>
-                        <span>Ajouter un projet</span>
-                      </button>
+                        Ajouter un projet
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -313,29 +322,34 @@ export default function Sidebar() {
                           </div>
                         ))}
                         <div className="border-t border-gray-200 mt-1 pt-1">
-                          <button
+                          <Button
                             onClick={() => {
                               setIsProjectMenuOpen(false);
                             }}
-                            className="w-full p-2 flex gap-3 items-center rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 transition-all duration-200 cursor-pointer group"
+                            variant="ghost"
+                            size="sm"
+                            className="w-full justify-start p-2"
+                            icon={
+                              <div className="w-6 h-6 flex items-center justify-center rounded-full border border-gray-300 group-hover:border-[#0F8096] transition-colors">
+                                <svg
+                                  className="w-3 h-3 text-gray-500 group-hover:text-[#0F8096] transition-colors"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M12 4v16m8-8H4"
+                                  />
+                                </svg>
+                              </div>
+                            }
+                            iconPosition="left"
                           >
-                            <div className="w-6 h-6 flex items-center justify-center rounded-full border border-gray-300 group-hover:border-[#0F8096] transition-colors">
-                              <svg
-                                className="w-3 h-3 text-gray-500 group-hover:text-[#0F8096] transition-colors"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M12 4v16m8-8H4"
-                                />
-                              </svg>
-                            </div>
-                            <span>Ajouter un projet</span>
-                          </button>
+                            Ajouter un projet
+                          </Button>
                         </div>
                       </div>
                     </div>

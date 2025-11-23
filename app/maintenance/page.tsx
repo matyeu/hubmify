@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import Button from "../components/Button";
 
 export default function MaintenancePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,41 +28,49 @@ export default function MaintenancePage() {
           >
             hubmify.com
           </a>
-          <button
-            className="bg-white px-5 py-3.5 shadow-sm rounded-md text-discord-default font-semibold text-sm font-action items-center justify-center gap-3 transition-all duration-200 hover:-translate-y-1.5 hidden lg:flex opacity-50 cursor-not-allowed"
+          <Button
+            variant="secondary"
+            size="md"
+            className="bg-white px-5 py-3.5 shadow-sm rounded-md text-discord-default font-semibold text-sm font-action items-center justify-center gap-3 transition-all duration-200 hover:-translate-y-1.5 hidden lg:flex opacity-50"
             disabled
+            icon={
+              <Image
+                alt="Discord Logo"
+                loading="lazy"
+                width={20}
+                height={20}
+                src="/images/media/discord-blurple.svg"
+                style={{ color: "transparent" }}
+              />
+            }
+            iconPosition="left"
           >
-            <Image
-              alt="Discord Logo"
-              loading="lazy"
-              width={20}
-              height={20}
-              src="/images/media/discord-blurple.svg"
-              style={{ color: "transparent" }}
-            />
             Access my account
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={toggleMenu}
-            className="text-dark-100 lg:hidden cursor-pointer"
+            variant="ghost"
+            size="sm"
+            className="text-dark-100 lg:hidden p-0"
             aria-label="Toggle menu"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="4" x2="20" y1="12" y2="12"></line>
-              <line x1="4" x2="20" y1="6" y2="6"></line>
-              <line x1="4" x2="20" y1="18" y2="18"></line>
-            </svg>
-          </button>
+            icon={
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line>
+              </svg>
+            }
+          />
         </nav>
 
         <div
@@ -243,11 +252,16 @@ export default function MaintenancePage() {
                         defaultValue=""
                       />
                     </div>
-                    <button className="!w-full lg:w-auto lg:max-w-max rounded-xl py-3 px-5 whitespace-nowrap text-sm relative z-1 overflow-hidden bg-button-primary bg-button-primary-disabled cursor-not-allowed">
-                      <p className="text-dark-100 font-action font-bold relative z-[2]">
+                    <Button
+                      variant="primary"
+                      size="lg"
+                      disabled
+                      className="!w-full lg:w-auto lg:max-w-max rounded-xl py-3 px-5 whitespace-nowrap text-sm relative z-1 overflow-hidden bg-button-primary bg-button-primary-disabled"
+                    >
+                      <span className="text-dark-100 font-action font-bold relative z-[2]">
                         Create my project
-                      </p>
-                    </button>
+                      </span>
+                    </Button>
                     <div className="bg-gradient-to-r from-dark-700 to-[rgba(0,0,0,.5)] backdrop-blur-lg -z-1 absolute top-0 left-0 h-full w-full opacity-50"></div>
                   </div>
                   <div className="absolute w-full">
@@ -668,11 +682,16 @@ export default function MaintenancePage() {
               </div>
             </div>
             <div className="flex justify-center opacity-50">
-              <button className="undefined border border-dark-100 border-opacity-20 rounded-xl py-3 px-5 whitespace-nowrap text-sm relative z-1 overflow-hidden bg-button-primary bg-button-primary-hover">
-                <p className="text-dark-100 font-action font-bold relative z-[2]">
+              <Button
+                variant="outline"
+                size="lg"
+                disabled
+                className="border border-dark-100 border-opacity-20 rounded-xl py-3 px-5 whitespace-nowrap text-sm relative z-1 overflow-hidden bg-button-primary bg-button-primary-hover opacity-50"
+              >
+                <span className="text-dark-100 font-action font-bold relative z-[2]">
                   Explore the projects (coming soon)
-                </p>
-              </button>
+                </span>
+              </Button>
             </div>
           </div>
 
@@ -694,11 +713,16 @@ export default function MaintenancePage() {
                     defaultValue=""
                   />
                 </div>
-                <button className="!w-full lg:w-auto lg:max-w-max rounded-xl py-3 px-5 whitespace-nowrap text-sm relative z-1 overflow-hidden bg-button-primary bg-button-primary-disabled cursor-not-allowed">
-                  <p className="text-dark-100 font-action font-bold relative z-[2]">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  disabled
+                  className="!w-full lg:w-auto lg:max-w-max rounded-xl py-3 px-5 whitespace-nowrap text-sm relative z-1 overflow-hidden bg-button-primary bg-button-primary-disabled"
+                >
+                  <span className="text-dark-100 font-action font-bold relative z-[2]">
                     Create my project
-                  </p>
-                </button>
+                  </span>
+                </Button>
                 <div className="bg-gradient-to-r from-dark-700 to-[rgba(0,0,0,.5)] backdrop-blur-lg -z-1 absolute top-0 left-0 h-full w-full opacity-50"></div>
               </div>
               <div className="absolute w-full">

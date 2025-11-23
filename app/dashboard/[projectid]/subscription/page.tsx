@@ -7,6 +7,7 @@ import Sidebar from "../../../components/dashboard/Sidebar";
 import Footer from "../../../components/dashboard/Footer";
 import Modal from "../../../components/dashboard/Modal";
 import ModuleCard from "../../../components/dashboard/ModuleCard";
+import Button from "../../../components/Button";
 import { useSidebar } from "../../../contexts/SidebarContext";
 import { useParams } from "next/navigation";
 import { Module, getModules } from "../../../data/dashboard/moduleLinks";
@@ -105,24 +106,27 @@ export default function SubscriptionPage() {
   return (
     <>
       {isMobile && !isOpen && (
-        <button
+        <Button
           onClick={toggleCollapse}
-          className="fixed top-4 left-4 z-[100] w-10 h-10 flex items-center justify-center bg-white border border-gray-200 rounded shadow-lg hover:bg-gray-50 transition-all cursor-pointer md:hidden"
-        >
-          <svg
-            className="w-5 h-5 text-gray-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
+          variant="outline"
+          size="sm"
+          className="fixed top-4 left-4 z-[100] w-10 h-10 p-0 md:hidden"
+          icon={
+            <svg
+              className="w-5 h-5 text-gray-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          }
+        />
       )}
       <div className="flex min-h-screen bg-gray-50">
         {!isMobile && <Sidebar />}
@@ -254,30 +258,35 @@ export default function SubscriptionPage() {
                                   </div>
                                 ) : (
                                   availableProjects.map((project) => (
-                                    <button
+                                    <Button
                                       key={project.href}
                                       onClick={(e) => {
-                                        e.stopPropagation();
+                                        if (e) {
+                                          e.stopPropagation();
+                                        }
                                         handleTransferClick(
                                           module.id,
                                           project.href
                                         );
                                       }}
-                                      className="w-full px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 transition-colors flex items-center gap-3 cursor-pointer"
+                                      variant="ghost"
+                                      size="sm"
+                                      className="w-full justify-start text-left"
+                                      icon={
+                                        project.logo ? (
+                                          <Image
+                                            src={project.logo}
+                                            alt={project.label}
+                                            width={24}
+                                            height={24}
+                                            className="w-6 h-6 rounded-full object-cover"
+                                          />
+                                        ) : undefined
+                                      }
+                                      iconPosition="left"
                                     >
-                                      {project.logo && (
-                                        <Image
-                                          src={project.logo}
-                                          alt={project.label}
-                                          width={24}
-                                          height={24}
-                                          className="w-6 h-6 rounded-full object-cover"
-                                        />
-                                      )}
-                                      <span className="flex-1">
-                                        {project.label}
-                                      </span>
-                                    </button>
+                                      {project.label}
+                                    </Button>
                                   ))
                                 )}
                               </div>
@@ -303,18 +312,21 @@ export default function SubscriptionPage() {
         title="Confirmer le transfert"
         footer={
           <>
-            <button
+            <Button
               onClick={() => setConfirmationModal(null)}
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors cursor-pointer"
+              variant="secondary"
+              size="md"
             >
               Annuler
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={confirmTransfer}
-              className="px-4 py-2 text-sm font-medium text-white bg-[#0F8096] rounded-lg hover:bg-[#0d6d7d] transition-colors cursor-pointer"
+              variant="primary"
+              size="md"
+              className="!bg-[#0F8096] hover:!bg-[#0d6d7d] text-white"
             >
               Confirmer
-            </button>
+            </Button>
           </>
         }
       >

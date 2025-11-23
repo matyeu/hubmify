@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import UserProfileMenu from "./UserProfileMenu";
+import Button from "../Button";
 
 interface HeaderProps {
   title?: string;
@@ -53,16 +54,23 @@ export default function Header({
           </div>
         </div>
         <div className="flex items-center gap-3">
-          <button className="hidden md:flex bg-black text-white px-4 py-2 rounded-lg text-sm font-medium items-center gap-2 hover:bg-gray-800 transition-colors">
+          <Button
+            variant="primary"
+            size="md"
+            className="hidden md:flex"
+            icon={
+              <Image
+                src="/images/icon_pro.svg"
+                alt="Pro badge"
+                width={16}
+                height={16}
+                className="w-4 h-4"
+              />
+            }
+            iconPosition="right"
+          >
             Upgrade to Pro
-            <Image
-              src="/images/icon_pro.svg"
-              alt="Pro badge"
-              width={16}
-              height={16}
-              className="w-4 h-4"
-            />
-          </button>
+          </Button>
           <UserProfileMenu userName={userName} />
         </div>
       </div>

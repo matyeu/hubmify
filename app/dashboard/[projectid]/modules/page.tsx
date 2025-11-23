@@ -5,6 +5,7 @@ import Header from "../../../components/dashboard/Header";
 import Sidebar from "../../../components/dashboard/Sidebar";
 import Footer from "../../../components/dashboard/Footer";
 import ModuleCard from "../../../components/dashboard/ModuleCard";
+import Button from "../../../components/Button";
 import { useSidebar } from "../../../contexts/SidebarContext";
 import {
   Module,
@@ -30,24 +31,27 @@ export default function ModulesPage() {
   return (
     <>
       {isMobile && !isOpen && (
-        <button
+        <Button
           onClick={toggleCollapse}
-          className="fixed top-4 left-4 z-[100] w-10 h-10 flex items-center justify-center bg-white border border-gray-200 rounded shadow-lg hover:bg-gray-50 transition-all cursor-pointer md:hidden"
-        >
-          <svg
-            className="w-5 h-5 text-gray-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
+          variant="outline"
+          size="sm"
+          className="fixed top-4 left-4 z-[100] w-10 h-10 p-0 md:hidden"
+          icon={
+            <svg
+              className="w-5 h-5 text-gray-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          }
+        />
       )}
       <div className="flex min-h-screen bg-gray-50">
         {!isMobile && <Sidebar />}

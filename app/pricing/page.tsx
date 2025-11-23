@@ -6,6 +6,7 @@ import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import FAQSection from "../components/FAQSection";
+import Button from "../components/Button";
 
 // Composant Check Icon
 function CheckIcon({ className }: { className?: string }) {
@@ -137,7 +138,7 @@ function PricingPlans() {
     <div className="max-w-4xl mx-auto w-full grid grid-cols-1 gap-20">
       {/* Sélecteur de période */}
       <div className="rounded-full p-1.5 bg-white/20 max-w-max mx-auto flex items-center gap-1">
-        <button
+        <Button
           onClick={() => setSelectedPeriod("6-months")}
           className={`inline-block min-w-min text-sm rounded-full whitespace-nowrap relative z-1 overflow-hidden transition-all duration-200 cursor-pointer hover:brightness-125 ${
             selectedPeriod === "6-months" ? "" : ""
@@ -153,8 +154,8 @@ function PricingPlans() {
             6-months
             <span className="absolute right-0 top-0 h-full w-[40px] blur-xl -z-1 bg-[#b3d9f7]"></span>
           </p>
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => setSelectedPeriod("3-months")}
           className="inline-block min-w-min text-sm rounded-full whitespace-nowrap relative z-1 overflow-hidden transition-all duration-200 cursor-pointer hover:brightness-125"
         >
@@ -168,8 +169,8 @@ function PricingPlans() {
             3-months
             <span className="absolute right-0 top-0 h-full w-[40px] blur-xl -z-1"></span>
           </p>
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => setSelectedPeriod("1-month")}
           className="inline-block min-w-min text-sm rounded-full whitespace-nowrap relative z-1 overflow-hidden transition-all duration-200 cursor-pointer hover:brightness-125"
         >
@@ -183,7 +184,7 @@ function PricingPlans() {
             1-month
             <span className="absolute right-0 top-0 h-full w-[40px] blur-xl -z-1"></span>
           </p>
-        </button>
+        </Button>
       </div>
 
       {/* Cartes de pricing */}
@@ -308,12 +309,12 @@ function PricingPlans() {
                 </li>
               </ul>
               <div className="!absolute !z-1 background__noisy opacity-30"></div>
-              <button className="w-full mt-10 inline-block min-w-min text-sm rounded-full whitespace-nowrap relative z-1 overflow-hidden transition-all duration-200 cursor-pointer hover:brightness-125 p-[4px] bg-white/20 border border-white/20">
+              <Button className="w-full mt-10 inline-block min-w-min text-sm rounded-full whitespace-nowrap relative z-1 overflow-hidden transition-all duration-200 cursor-pointer hover:brightness-125 p-[4px] bg-white/20 border border-white/20">
                 <p className="font-sans font-semibold relative inline-block rounded-full z-1 transition-all duration-200 w-full bg-white text-body px-4 py-2.5">
                   Subscribe to Pro
                   <span className="absolute right-0 top-0 h-full w-[40px] blur-xl -z-1 bg-[#b3d9f7]"></span>
                 </p>
-              </button>
+              </Button>
             </div>
           </div>
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-linear scale-90 group-hover:scale-100 blur-3xl transition-all duration-200 -z-1"></div>
@@ -409,7 +410,7 @@ function ProComparison() {
         <header className="grid grid-cols-2">
           <div className="flex items-center justify-center">
             <div className="rounded-full p-1.5 bg-white/20 max-w-max mx-auto flex items-center gap-1">
-              <button
+              <Button
                 onClick={() => setSelectedPlan("basic")}
                 className="inline-block min-w-min text-sm rounded-full whitespace-nowrap relative z-1 overflow-hidden transition-all duration-200 cursor-pointer hover:brightness-125"
               >
@@ -423,8 +424,8 @@ function ProComparison() {
                   Basic
                   <span className="absolute right-0 top-0 h-full w-[40px] blur-xl -z-1"></span>
                 </p>
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={() => setSelectedPlan("pro")}
                 className="inline-block min-w-min text-sm rounded-full whitespace-nowrap relative z-1 overflow-hidden transition-all duration-200 cursor-pointer hover:brightness-125"
               >
@@ -438,7 +439,7 @@ function ProComparison() {
                   Pro
                   <span className="absolute right-0 top-0 h-full w-[40px] blur-xl -z-1 bg-[#b3d9f7]"></span>
                 </p>
-              </button>
+              </Button>
             </div>
           </div>
           <p className="text-white font-title text-2xl font-bold text-center flex items-center justify-center gap-2 py-7 relative z-10">
