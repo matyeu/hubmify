@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import ReleaseNotesModal from "./Modals/ReleaseNotesModal";
 
 interface UserProfileMenuProps {
   userName?: string;
@@ -21,6 +22,7 @@ export default function UserProfileMenu({
   showText = true,
 }: UserProfileMenuProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isReleaseNotesOpen, setIsReleaseNotesOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -186,13 +188,15 @@ export default function UserProfileMenu({
               >
                 Language
               </Link>
-              <Link
-                href="#"
-                className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+              <button
+                className="block w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md transition-colors cursor-pointer"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setIsReleaseNotesOpen(true);
+                }}
               >
                 Release Notes
-              </Link>
+              </button>
               <Link
                 href="#"
                 className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md transition-colors"
@@ -211,6 +215,11 @@ export default function UserProfileMenu({
           </div>
         </div>
       )}
+
+      <ReleaseNotesModal
+        isOpen={isReleaseNotesOpen}
+        onClose={() => setIsReleaseNotesOpen(false)}
+      />
     </div>
   );
 }

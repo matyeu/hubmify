@@ -5,7 +5,7 @@ import Image from "next/image";
 import Header from "../../../components/dashboard/Header";
 import Sidebar from "../../../components/dashboard/Sidebar";
 import Footer from "../../../components/dashboard/Footer";
-import Modal from "../../../components/dashboard/Modal";
+import Modal from "../../../components/dashboard/Modals/Modal";
 import ModuleCard from "../../../components/dashboard/ModuleCard";
 import Button from "../../../components/Button";
 import { useSidebar } from "../../../contexts/SidebarContext";
