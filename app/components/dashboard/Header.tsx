@@ -54,23 +54,24 @@ export default function Header({
           </div>
         </div>
         <div className="flex items-center gap-3">
-          <Button
-            variant="primary"
-            size="md"
-            className="hidden md:flex"
-            icon={
-              <Image
-                src="/images/icon_pro.svg"
-                alt="Pro badge"
-                width={16}
-                height={16}
-                className="w-4 h-4"
-              />
-            }
-            iconPosition="right"
-          >
-            Upgrade to Pro
-          </Button>
+          <div className="hidden md:block">
+            <Button
+              variant="primary"
+              size="md"
+              icon={
+                <Image
+                  src="/images/icon_pro.svg"
+                  alt="Pro badge"
+                  width={16}
+                  height={16}
+                  className="w-4 h-4"
+                />
+              }
+              iconPosition="right"
+            >
+              Upgrade to Pro
+            </Button>
+          </div>
           <UserProfileMenu userName={userName} />
         </div>
       </div>
