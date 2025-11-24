@@ -4,7 +4,7 @@ import { useState } from "react";
 import Sidebar from "../../../../components/dashboard/Sidebar";
 import Button from "../../../../components/Button";
 import { useSidebar } from "../../../../contexts/SidebarContext";
-import ModuleConfigBox from "../../../../components/dashboard/Modules/BoxModule";
+import ModuleConfigBox from "../../../../components/dashboard/Modules/ModuleContainer";
 import ModuleIcon from "../../../../components/dashboard/Modules/ModuleIcon";
 
 export default function CustomPage() {
