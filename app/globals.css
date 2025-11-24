@@ -151,3 +151,22 @@ path[data-animate="true"] {
     stroke-dashoffset: 0;
   }
 }
+
+/* Animation vers la corbeille */
+.animate-to-trash {
+  animation: slideToTrash 0.6s ease-in forwards;
+  z-index: 50;
+  pointer-events: none;
+}
+
+@keyframes slideToTrash {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(var(--delta-x, 0), var(--delta-y, 0)) scale(0.3);
+    opacity: 0;
+  }
+}
