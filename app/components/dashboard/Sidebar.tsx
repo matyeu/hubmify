@@ -85,12 +85,12 @@ export default function Sidebar() {
         />
       )}
       <aside
-        className={`bg-white border-r border-gray-200 flex flex-col h-screen transition-all duration-700 ease-out z-50 ${
+        className={`bg-white border-r border-gray-200 flex flex-col transition-all duration-700 ease-out z-50 ${
           isMobile
-            ? `fixed top-0 left-0 transition-[width] duration-700 ease-out ${
+            ? `fixed top-0 left-0 h-screen transition-[width] duration-700 ease-out ${
                 isOpen ? "w-full" : "w-0"
               } overflow-hidden`
-            : `relative ${collapsed ? "w-20" : "w-64"} ${
+            : `sticky top-0 self-start h-screen ${collapsed ? "w-20" : "w-64"} ${
                 collapsed ? "overflow-visible" : ""
               }`
         } ${isMobile && !isOpen ? "pointer-events-none" : ""}`}
@@ -817,7 +817,7 @@ export default function Sidebar() {
         </nav>
 
         {/* Profile */}
-        <div className="border-t border-gray-200 bg-[#f3f4f6] p-4">
+        <div className="border-t border-gray-200 bg-[#f3f4f6] p-4 mt-auto">
           <UserProfileMenu
             userName="Matyeu"
             variant="sidebar"
