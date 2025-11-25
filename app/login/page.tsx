@@ -8,14 +8,28 @@ import Button from "../components/Button";
 export default function LoginPage() {
   const router = useRouter();
 
-  const handleSocialLogin = (provider: string) => {
+  const handleSocialLogin = async (provider: string) => {
     const URL =
       process.env.NODE_ENV === "development"
         ? process.env.NEXT_PUBLIC_BACKEND_URL_DEV
         : process.env.NEXT_PUBLIC_BACKEND_URL_PROD;
 
     if (provider === "discord") {
-      window.location.href = `${URL}/api/auth/discord`;
+      try {
+        const response = await fetch(`${URL}/api/auth/discord`, {
+          method: "GET",
+          credentials: "include",
+        });
+        const data = await response.json();
+
+        if (data.status === "redirect" && data.redirectTo) {
+          window.location.href = data.redirectTo;
+        } else {
+          console.error("Erreur lors de l'authentification Discord:", data);
+        }
+      } catch (error) {
+        console.error("Erreur lors de l'appel API:", error);
+      }
     }
   };
 
