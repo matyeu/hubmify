@@ -124,6 +124,30 @@ export default function Footer({
             </li>
           </ul>
         </div>
+        <div>
+          <p className="text-white/50 font-title uppercase text-sm font-bold">
+            Informations
+          </p>
+          <ul className="mt-3 space-y-1">
+            <li>
+              <Link
+                href="/pricing"
+                className="text-white font-sans text-base hover:underline flex items-center gap-2"
+              >
+                Pricing
+                {showPricingBadge && (
+                  <Image
+                    alt="Pro"
+                    src="/images/badge_pro.png"
+                    width={32}
+                    height={32}
+                    className="w-4"
+                  />
+                )}
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </footer>
   );
