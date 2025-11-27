@@ -34,13 +34,16 @@ export default function LoginPage() {
   };
 
   return (
-    <section className="py-4 px-6 lg:p-6 min-h-screen flex items-center justify-center bg-neutral-900 relative overflow-hidden">
-      <div className="max-w-md mx-auto w-full grid grid-cols-1 gap-16 relative z-10">
-        <main className="rounded-2xl border bg-body/30 border-white/5 p-8 w-full">
+    <section className="py-4 px-6 lg:p-6 min-h-screen flex items-center justify-center">
+      <div className="max-w-md mx-auto w-full grid grid-cols-1 gap-16 relative z-1">
+        <main
+          className="rounded-2xl border border-white/5 p-8 w-full"
+          style={{ backgroundColor: "rgba(10, 10, 10, 0.3)" }}
+        >
           {/* Logo */}
           <Link
             href="/"
-            className="font-bold font-title overflow-hidden text-2xl flex items-center justify-center gap-3 text-white fill-white bg-gradient-linear relative z-10 shadow-sm w-16 h-16 rounded-lg mx-auto"
+            className="font-bold font-title overflow-hidden text-2xl flex items-center justify-center gap-3 text-white fill-white bg-gradient-linear relative z-1 shadow-sm w-16 h-16 rounded-lg mx-auto"
           >
             <Image
               src="/images/logos/logo.png"
@@ -49,14 +52,14 @@ export default function LoginPage() {
               height={64}
               className="w-full h-full object-contain rounded-lg"
             />
-            <div className="!absolute !z-10 background__noisy opacity-40"></div>
+            <div className="!absolute !z-1 background__noisy opacity-40"></div>
           </Link>
 
           <div className="w-full mt-10">
             <p className="font-title text-white font-bold text-3xl text-center">
               Welcome back
             </p>
-            <p className="font-sans text-dark-200/70 text-center mt-2">
+            <p className="font-sans text-dark-200/70 text-center text-sm max-w-xs mx-auto">
               Choose your connection method to access or create your account.
             </p>
 
@@ -92,7 +95,7 @@ export default function LoginPage() {
                   onClick={() => handleSocialLogin("google")}
                   variant="secondary"
                   size="lg"
-                  className="bg-white hover:bg-opacity-80 text-neutral-800 font-sans"
+                  className="bg-white hover:bg-opacity-80 text-dark-800 font-sans"
                   icon={
                     <svg
                       stroke="currentColor"
@@ -141,7 +144,7 @@ export default function LoginPage() {
                   onClick={() => handleSocialLogin("github")}
                   variant="primary"
                   size="lg"
-                  className="bg-neutral-700 hover:bg-opacity-80 text-white font-sans"
+                  className="bg-dark-700 hover:bg-opacity-80 text-white font-sans"
                   icon={
                     <svg
                       stroke="currentColor"
@@ -177,7 +180,7 @@ export default function LoginPage() {
                     onClick={() => handleSocialLogin("orange")}
                     variant="primary"
                     size="md"
-                    className="bg-orange-400 hover:bg-opacity-80 text-white font-sans"
+                    className="!bg-orange-400 !hover:bg-opacity-80 text-white font-sans"
                     icon={
                       <svg
                         stroke="currentColor"
@@ -199,7 +202,7 @@ export default function LoginPage() {
                     onClick={() => handleSocialLogin("huggingface")}
                     variant="secondary"
                     size="md"
-                    className="bg-white hover:bg-opacity-80 text-neutral-800 font-sans"
+                    className="bg-white hover:bg-opacity-80 text-dark-800 font-sans"
                     icon={
                       <svg
                         className="w-6 h-6"
@@ -241,7 +244,10 @@ export default function LoginPage() {
 
         {/* Footer */}
         <footer className="text-white text-center">
-          <p className="font-sans text-dark-200/60 text-center">
+          <p
+            className="font-sans text-dark-200/60 text-center"
+            style={{ color: "rgba(255, 255, 255, 0.6)" }}
+          >
             Copyright © 2025 Hubmify, Inc
           </p>
           <ul className="mt-5 flex gap-5 justify-center">
@@ -289,6 +295,9 @@ export default function LoginPage() {
             </li>
           </ul>
         </footer>
+
+        {/* Dégradé en arrière-plan */}
+        <div className="-z-1 w-[340px] h-[340px] rounded-full bg-gradient-linear blur-[110px] absolute top-0 left-1/2 -translate-x-1/2"></div>
       </div>
     </section>
   );

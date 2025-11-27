@@ -21,8 +21,20 @@ body {
   background: rgba(10, 10, 10, 0.3);
 }
 
+.bg-body\/30 {
+  background: rgba(10, 10, 10, 0.3);
+}
+
 .text-dark-200 {
   color: rgba(255, 255, 255, 0.7);
+}
+
+.text-dark-200\/70 {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.text-dark-200\/60 {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .text-dark-100 {

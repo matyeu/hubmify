@@ -22,7 +22,7 @@ export default function FAQSection({
   const [openIndex, setOpenIndex] = useState<number | null>(defaultOpenIndex);
 
   return (
-    <section className="container mx-auto relative pb-32 pt-64 z-1 bg-gradient-linear">
+    <section className="container mx-auto relative pb-32 pt-64 z-1">
       <div className="flex flex-col items-center gap-4 lg:gap-6 w-full">
         <div className="undefined p-[3px] bg-white/20 border border-white/20 inline-block min-w-min text-sm rounded-full whitespace-nowrap relative z-1 overflow-hidden transition-all duration-200 cursor-pointer">
           <p className="font-sans uppercase text-xs font-semibold px-4 py-1.5 inline-block rounded-full z-1 bg-white text-black relative">
@@ -71,9 +71,6 @@ export default function FAQSection({
           </div>
         </div>
       </div>
-      <div className="absolute top-0 left-0 h-full w-full bg-grid-white/5 -z-1"></div>
-      <div className="!absolute background__noisy -z-[2]"></div>
-      <div className="w-full mx-auto bg-body [mask-image:radial-gradient(ellipse_at_center,transparent,black_60%)] absolute top-0 left-0 -z-1 h-full"></div>
     </section>
   );
 }

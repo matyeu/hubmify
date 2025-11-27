@@ -6,9 +6,9 @@ const page = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header
-        projectLogo="/images/logos/logo_dark.png"
+        projectLogo="/images/logos/logo_dark_favicon.png"
         projectName="Hubmify"
-        userAvatar="/images/logos/logo_dark.png"
+        userAvatar="/images/logos/logo_dark_favicon.png"
         userName="Matyeu"
       />
       <div className="p-6">

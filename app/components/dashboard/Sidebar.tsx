@@ -90,9 +90,9 @@ export default function Sidebar() {
             ? `fixed top-0 left-0 h-screen transition-[width] duration-700 ease-out ${
                 isOpen ? "w-full" : "w-0"
               } overflow-hidden`
-            : `sticky top-0 self-start h-screen ${collapsed ? "w-20" : "w-64"} ${
-                collapsed ? "overflow-visible" : ""
-              }`
+            : `sticky top-0 self-start h-screen ${
+                collapsed ? "w-20" : "w-64"
+              } ${collapsed ? "overflow-visible" : ""}`
         } ${isMobile && !isOpen ? "pointer-events-none" : ""}`}
       >
         {!isMobile && <CollapseButton />}
@@ -108,7 +108,7 @@ export default function Sidebar() {
             }`}
           >
             <Image
-              src="/images/logos/logo_dark.png"
+              src="/images/logos/logo_dark_favicon.png"
               alt="Hubmify logo"
               width={40}
               height={40}
@@ -630,18 +630,24 @@ export default function Sidebar() {
                   className={`flex items-center rounded-lg transition-all duration-700 ease-out ${
                     showText ? "gap-3 px-3 py-2" : "justify-center px-3 py-2"
                   } text-gray-700 hover:bg-gray-100 ${
-                    pathname?.includes("/themes") ? "bg-[#CFF6FD] text-[#0F8096]" : ""
+                    pathname?.includes("/themes")
+                      ? "bg-[#CFF6FD] text-[#0F8096]"
+                      : ""
                   }`}
                   title={showText ? undefined : "Themes"}
                 >
                   <div
                     className={`w-8 h-8 flex-shrink-0 rounded-lg border border-gray-200 flex items-center justify-center ${
-                      pathname?.includes("/themes") ? "bg-[#CFF6FD]" : "bg-[#f3f4f6]"
+                      pathname?.includes("/themes")
+                        ? "bg-[#CFF6FD]"
+                        : "bg-[#f3f4f6]"
                     }`}
                   >
                     <svg
                       className={`w-5 h-5 ${
-                        pathname?.includes("/themes") ? "text-[#0F8096]" : "text-gray-700"
+                        pathname?.includes("/themes")
+                          ? "text-[#0F8096]"
+                          : "text-gray-700"
                       }`}
                       fill="none"
                       stroke="currentColor"

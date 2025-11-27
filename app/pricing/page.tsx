@@ -147,12 +147,16 @@ function PricingPlans() {
           <p
             className={`font-sans font-semibold relative inline-block rounded-full z-1 transition-all duration-200 w-full px-4 py-2.5 ${
               selectedPeriod === "6-months"
-                ? "bg-white text-body"
+                ? "bg-white text-black"
                 : "bg-transparent text-white hover:from-white/10 hover:to-white/5 bg-gradient-to-r"
             }`}
           >
             6-months
-            <span className="absolute right-0 top-0 h-full w-[40px] blur-xl -z-1 bg-[#b3d9f7]"></span>
+            <span
+              className={`absolute right-0 top-0 h-full w-[40px] blur-xl -z-1 ${
+                selectedPeriod === "6-months" ? "bg-[#b3d9f7]" : ""
+              }`}
+            ></span>
           </p>
         </Button>
         <Button
@@ -162,7 +166,7 @@ function PricingPlans() {
           <p
             className={`font-sans font-semibold relative inline-block rounded-full z-1 transition-all duration-200 w-full px-4 py-2.5 ${
               selectedPeriod === "3-months"
-                ? "bg-white text-body"
+                ? "bg-white text-black"
                 : "bg-transparent text-white hover:from-white/10 hover:to-white/5 bg-gradient-to-r"
             }`}
           >
@@ -177,7 +181,7 @@ function PricingPlans() {
           <p
             className={`font-sans font-semibold relative inline-block rounded-full z-1 transition-all duration-200 w-full px-4 py-2.5 ${
               selectedPeriod === "1-month"
-                ? "bg-white text-body"
+                ? "bg-white text-black"
                 : "bg-transparent text-white hover:from-white/10 hover:to-white/5 bg-gradient-to-r"
             }`}
           >
@@ -197,7 +201,7 @@ function PricingPlans() {
             </p>
             <p className="text-sm text-dark-200/50">
               This is the default plan. It includes all the basic features to
-              start your portfolio.
+              start your project.
             </p>
             <p className="capitalize font-bold font-title text-white text-5xl">
               0€ <span className="text-xs opacity-50 uppercase">/ month</span>
@@ -223,13 +227,13 @@ function PricingPlans() {
             </li>
             <li className="flex items-start justify-start gap-3 font-title text-sm text-dark-200/30">
               <CrossIcon className="inline min-w-[22px] min-h-[22px] opacity-70" />
-              Access to a lot of statistics about your portfolio: views, clicks,
+              Access to a lot of statistics about your project: views, clicks,
               etc
             </li>
             <li className="flex items-start justify-start gap-3 font-title text-sm text-dark-200/30">
               <CrossIcon className="inline min-w-[22px] min-h-[22px] opacity-70" />
               Get the last posts from your social networks and display them in
-              your portfolio
+              your project
             </li>
           </ul>
         </div>
@@ -243,14 +247,14 @@ function PricingPlans() {
                   Pro Membership
                   <Image
                     alt="Pro"
-                    src="/images/badge_pro.png"
+                    src="/images/icon_pro.svg"
                     width={32}
                     height={32}
                     className="w-6"
                   />
                 </p>
                 <p className="text-sm text-dark-200/50">
-                  Get access to all the features and take your portfolio to the
+                  Get access to all the features and take your project to the
                   next level.
                 </p>
                 <div className="space-y-2.5">
@@ -299,18 +303,18 @@ function PricingPlans() {
                 </li>
                 <li className="flex items-start justify-start gap-3 font-title text-sm text-white">
                   <CheckIcon className="inline min-w-[22px] min-h-[22px] text-white" />
-                  Access to a lot of statistics about your portfolio: views,
+                  Access to a lot of statistics about your project: views,
                   clicks, etc
                 </li>
                 <li className="flex items-start justify-start gap-3 font-title text-sm text-white">
                   <CheckIcon className="inline min-w-[22px] min-h-[22px] text-white" />
                   Get the last posts from your social networks and display them
-                  in your portfolio
+                  in your project
                 </li>
               </ul>
               <div className="!absolute !z-1 background__noisy opacity-30"></div>
               <Button className="w-full mt-10 inline-block min-w-min text-sm rounded-full whitespace-nowrap relative z-1 overflow-hidden transition-all duration-200 cursor-pointer hover:brightness-125 p-[4px] bg-white/20 border border-white/20">
-                <p className="font-sans font-semibold relative inline-block rounded-full z-1 transition-all duration-200 w-full bg-white text-body px-4 py-2.5">
+                <p className="font-sans font-semibold relative inline-block rounded-full z-1 transition-all duration-200 w-full bg-white text-black px-4 py-2.5">
                   Subscribe to Pro
                   <span className="absolute right-0 top-0 h-full w-[40px] blur-xl -z-1 bg-[#b3d9f7]"></span>
                 </p>
@@ -333,7 +337,7 @@ function ProComparison() {
     { name: "Modules and content synchronization", basic: true, pro: true },
     { name: "Subdomain slug.devart.bio", basic: false, pro: true },
     { name: "Custom domain name support", basic: false, pro: true },
-    { name: "Cards limit on your portfolio", basic: "20", pro: "Unlimited" },
+    { name: "Cards limit on your project", basic: "20", pro: "Unlimited" },
     { name: "Access to all services", basic: false, pro: true },
     { name: "Theme choices", basic: "5", pro: "Full access" },
     {
@@ -359,7 +363,7 @@ function ProComparison() {
             Pro membership{" "}
             <Image
               alt="Pro"
-              src="/images/badge_pro.png"
+              src="/images/icon_pro.svg"
               width={32}
               height={32}
               className="w-5 inline-block"
@@ -417,7 +421,7 @@ function ProComparison() {
                 <p
                   className={`font-sans font-semibold relative inline-block rounded-full z-1 transition-all duration-200 w-full px-4 py-2.5 ${
                     selectedPlan === "basic"
-                      ? "bg-white text-body"
+                      ? "bg-white text-black"
                       : "bg-transparent text-white hover:from-white/10 hover:to-white/5 bg-gradient-to-r"
                   }`}
                 >
@@ -432,7 +436,7 @@ function ProComparison() {
                 <p
                   className={`font-sans font-semibold relative inline-block rounded-full z-1 transition-all duration-200 w-full px-4 py-2.5 ${
                     selectedPlan === "pro"
-                      ? "bg-white text-body"
+                      ? "bg-white text-black"
                       : "bg-transparent text-white hover:from-white/10 hover:to-white/5 bg-gradient-to-r"
                   }`}
                 >
@@ -446,7 +450,7 @@ function ProComparison() {
             Pro{" "}
             <Image
               alt="Pro"
-              src="/images/badge_pro.png"
+              src="/images/icon_pro.svg"
               width={32}
               height={32}
               className="w-4 inline-block"
@@ -537,7 +541,7 @@ export default function PricingPage() {
         {/* Hero Section */}
         <section className="relative w-full z-1 py-32 h-full lg:pt-52 lg:pb-44 grid grid-cols-1 gap-6 lg:gap-8">
           <h1 className="text-white text-4xl lg:text-7xl font-bold text-center font-title mx-auto">
-            Take your portfolio to the <br />
+            Take your project to the <br />
             <span className="font-italic italic font-extralight">
               next
             </span>{" "}
@@ -549,9 +553,27 @@ export default function PricingPage() {
           </p>
           <PricingPlans />
           <div className="absolute w-screen -left-6 h-1/2 top-10 -z-1">
-            {/* Grid background - vous pouvez ajouter une image de grid si nécessaire */}
-            <div className="absolute w-2/5 h-full left-0 object-cover opacity-10 bg-grid-white/5"></div>
-            <div className="absolute w-2/5 h-full right-0 object-cover opacity-20 bg-grid-white/5"></div>
+            {/* Grid background */}
+            <div className="absolute w-2/5 h-full left-0 object-cover opacity-10 pointer-events-none">
+              <Image
+                src="/images/grid.svg"
+                alt="Grid background"
+                width={864}
+                height={1004}
+                className="w-full h-full object-cover"
+                style={{ mixBlendMode: "overlay" }}
+              />
+            </div>
+            <div className="absolute w-2/5 h-full right-0 object-cover opacity-20 pointer-events-none">
+              <Image
+                src="/images/grid.svg"
+                alt="Grid background"
+                width={864}
+                height={1004}
+                className="w-full h-full object-cover"
+                style={{ mixBlendMode: "overlay" }}
+              />
+            </div>
             <div className="bg-gradient-to-b from-transparent to-body absolute w-full h-[100px] bottom-0"></div>
           </div>
         </section>

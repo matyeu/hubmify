@@ -109,8 +109,12 @@ export default function PreviewVideo() {
       </div>
       <div className="z-10 relative transition-all duration-200 h-[40dvh] lg:hidden -translate-y-20">
         <div className="w-full h-full mx-auto rounded-[45px] max-w-6xl border border-opacity-20 border-white bg-white/20 p-[8px] z-1 overflow-hidden">
-          <div className="w-full h-full object-cover rounded-[36px] bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center">
-            <p className="text-white/50 text-sm">Preview</p>
+          <div className="w-full h-full rounded-[36px] bg-gradient-to-br from-purple-500/20 to-blue-500/20 overflow-hidden">
+            <img
+              src="/images/preview.svg"
+              alt="Preview"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>
