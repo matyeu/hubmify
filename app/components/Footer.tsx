@@ -138,7 +138,7 @@ export default function Footer({
                 {showPricingBadge && (
                   <Image
                     alt="Pro"
-                    src="/images/badge_pro.png"
+                    src="/images/icon_pro.svg"
                     width={32}
                     height={32}
                     className="w-4"
