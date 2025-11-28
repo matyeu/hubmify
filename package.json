@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev": "concurrently --raw \"npm run dev:backend\" \"npm run dev:frontend\"",
     "dev:backend": "tsx watch backend/app.ts",
     "dev:frontend": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "concurrently --raw \"npm run start:backend\" \"npm run start:frontend\"",
+    "start:backend": "node -r tsx/cjs backend/app.ts",
+    "start:frontend": "next start",
     "lint": "eslint"
   },
   "author": "matyeu",

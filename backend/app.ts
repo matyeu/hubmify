@@ -4,24 +4,26 @@ configDotenv();
 import express from "express";
 import { sessionMiddleware } from "@/utils/session";
 import cors from "cors";
-import authRoutes from "./routes/auth.route";
+import chalk from "chalk";
+import logger from "@/utils/logger";
+import { registerRoutes } from "@/utils/loader";
 
 const app = express();
 const PORT = process.env.APP_PORT;
+const IS_PRODUCTION = process.env.MODE === "production";
 
 app.use(express.json());
 app.use(sessionMiddleware);
 app.use(
   cors({
-    origin:
-      process.env.MODE === "development"
-        ? process.env.FRONTEND_URL_DEV
-        : process.env.FRONTEND_URL_PROD,
+    origin: IS_PRODUCTION
+      ? process.env.NEXT_PUBLIC_FRONTEND_URL_PROD
+      : process.env.NEXT_PUBLIC_FRONTEND_URL_DEV,
     credentials: true,
   })
 );
 
-app.use("/api/auth", authRoutes);
+registerRoutes(app);
 
 app.use(
   (
@@ -38,5 +40,13 @@ app.use(
 );
 
 app.listen(PORT, () => {
-  console.log(`Serveur démarré sur le port ${PORT}`);
+  logger.server(
+    `Site web on ${
+      IS_PRODUCTION
+        ? process.env.NEXT_PUBLIC_FRONTEND_URL_PROD
+        : process.env.NEXT_PUBLIC_FRONTEND_URL_DEV
+    }`
+  );
+  logger.server(`🚀 Server started on port ${PORT}`);
+  console.log(chalk.grey("--------------------------------"));
 });
