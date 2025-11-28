@@ -7,7 +7,7 @@ import Header from "../../../components/dashboard/Header";
 import Sidebar from "../../../components/dashboard/Sidebar";
 import Footer from "../../../components/dashboard/Footer";
 import Button from "../../../components/Button";
-import Modal from "../../../components/dashboard/Modals/Modal";
+import Modal from "../../../components/Modals/Modal";
 import Badge from "../../../components/Badge";
 import Table from "../../../components/dashboard/Table/Table";
 import Filter, {

@@ -1,7 +1,8 @@
 import { Router } from "express";
-import { authController } from "../controllers/auth.controller";
-import { requireAuth } from "../middlewares/auth.middleware";
+import { userController } from "../controllers/user.controller";
 
 const router = Router();
+
+router.post("/create-from-modal", userController.createFromModal);
 
 export default router;
